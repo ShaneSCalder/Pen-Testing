@@ -3,9 +3,15 @@
 # remember to use python3 in terminal
 
 import subprocess
+import optparse
 
-interface = input('interface >')
-new_mac = input('Enter New MAC i.e. 00:00:00:00:00:00 >')
+parser = optparse.OptionParser()
+parser.add_option('-i', '--interface', dest='interface', help="Interface to change its MAC address")
+parser.add_option('-m', '--mac', dest='new_mac', help="New MAC address")
+(options, arguments) = parser.parse_args()
+
+interface = options.interface
+new_mac = options.new_mac
 
 print("[+] Changing MAC address for " + interface + 'to ' + new_mac)
 
