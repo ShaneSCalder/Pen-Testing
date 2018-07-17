@@ -1,7 +1,5 @@
 #1/usr/bin/env python3
 
-# remember to use python3 in terminal
-
 import subprocess
 import optparse
 
